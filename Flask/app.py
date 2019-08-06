@@ -1,4 +1,4 @@
-from flask import Flask,render_template,redirect,jsonify,url_for
+from flask import Flask,render_template,redirect,jsonify,url_for,request
 import sys
 
 app = Flask(__name__)
@@ -7,11 +7,14 @@ app = Flask(__name__)
 def index():
 	return render_template('index.html')
 
-@app.route('/respuesta')
+@app.route('/respuesta',methods=["POST"])
 def respuesta():
+	nombre = request.form['txt_name']
+	apellido = request.form['txt_last']
+
 	dic = {
-		"name": "Jose",
-		"lastname": "Perez"
+		"name": nombre,
+		"lastname": apellido
 	}
 
 	return jsonify(dic)
