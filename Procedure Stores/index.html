@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Estatus
+  </title>
+  <!--con esta etiqueta ajustamos el tamaño del sitio(responsive)-->
+  <meta content="initial-scale=1" name="viewport">
+  <meta charset="utf-8">
+  <meta content="0" http-equiv="Expires">
+  <meta content="0" http-equiv="Last-Modified">
+  <meta content="no-cache, mustrevalidate" http-equiv="Cache-Control">
+  <meta content="no-cache" http-equiv="Pragma">
+  <!--JS vinculados localmente-->
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <!--enlazamos el archivo min.css localmente-->
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <!--enlazamos el archivo min.js localmente-->
+  <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+  <!--enlazamos el archivo min.css localmente-->
+  <link href="../bootstrap/css/estilos.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div id="encabezadoform">
+    <h3>
+      Estatus
+    </h3>
+  </div>
+  <div align="center">
+    <form action="procedure.php" autocomplete="off" id="form" method="post">
+      <fieldset>
+        <legend align="left">
+          Cambio de estatus
+        </legend>
+        <div class="form-group">
+          <br />
+          <label>
+            Movimiento:
+          </label>
+          <br />
+          <select class="form-control custom-select" id="opc2" name="Opcion_Movimiento" required="">
+            <option disabled="" selected="" value="">
+              Selecciona una opción
+            </option>
+            <option value="gastosviajes">
+              Gastos
+            </option>
+            <option value="remisiones">
+              Remisiones
+            </option>
+            <option value="liquidaciones">
+              Liquidaciones
+            </option>
+            <option value="compras">
+              Compras
+            </option>
+            <option value="requisicion">
+              Requisiciones
+            </option>
+            <option value="ordencompra">
+              Orden de Compras
+            </option>
+            <option value="solicitudescompras">
+              Solicitud de Compras
+            </option>
+            <option value="abonos">
+              Abonos
+            </option>
+            <option value="pagos">
+              Pagos
+            </option>
+            <option value="movimientobancario">
+              Movimiento Bancario
+            </option>
+          </select>
+        </div>
+        <div class="form-group" id="resp">
+        </div>
+        <div class="form-group" id="resp2">
+        </div>
+        <div class="form-group ">
+          <input id="subID" name="subID" type="hidden">
+          <input id="subCausa" name="subCausa" type="hidden">
+          <input class="btn btn-info btn-primary btn-sm" id="btn" type="submit" value="Enviar" />
+          <input class="btn btn-info btn-primary btn-sm" type="reset" value="Borrar" />
+          </input>
+          </input>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <script type="text/javascript">
+    $(function() {
+
+      //VALIDA EL XFOLIO
+
+      $('#form').on('submit', function(e) {
+
+        //EVITA QUE EL FORMULARIO SE ENVIE
+
+        e.preventDefault();
+
+        var selectedOption = $('option[value="' + $('#opcID').val() + '"]'),
+          text = document.getElementById("opcID"),
+          text2 = document.getElementById("subID");
+
+        if (!selectedOption.length) {
+          text.value = "";
+          text2.value = "";
+          text.focus();
+          alert("XFolio Incorrecto");
+          return false;
+        } else {
+          text2.value = selectedOption.attr('id');
+        }
+
+        //VALIDA CAUSA
+        var selectedOption1 = $('option[value="' + $('#busqueda2').val() + '"]'),
+          text4 = document.getElementById("subCausa");
+        text4.value = selectedOption1.attr('id');
+
+
+        //FUNCION QUE EJECUTA EL MOVIMIENTO
+        $.ajax({
+          type: "post",
+          url: 'controlador.php',
+          data: $("#form").serialize(),
+          success: function(data) {
+            alert('Movimiento realizado con exito!');
+            $('#form').trigger("reset");
+            $('#resp').html(""),
+              $('#resp').html("");
+
+          },
+          error: function(data) {
+            alert('Error');
+            console.log(data);
+          }
+        });
+
+      });
+
+    });
+
+
+    $('#opc2').change(function() {
+      var opcion = $('#opc2').val();
+      var SelectEstado = '';
+      var SelectExt = '';
+      var SelectID = '<br/><label>XFolio</label><br/>' +
+        '<input list="busqueda" class="form-control custom-select" name="busqueda" required autocomplete="off" id="opcID" placeholder="Ingresa XFolio">' +
+        '<datalist id="busqueda" ></datalist>';
+
+      if (opcion == "liquidaciones") {
+        var SelectEstado = '<label>Estado:</label><br/>' +
+          '<select required class="form-control custom-select" name="Opcion_Estado" id="opc3">' +
+          '<option disabled selected value="">Selecciona una opción</option>' +
+          '<option value="Abrir">Abrir</option>' +
+          '<option value="Autorizar">Autorizar</option>' +
+          '<option value="Cerrar">Cerrar</option>' +
+          '<option value="Sellar">Sellar</option>' +
+          '</select>';
+      } else if (opcion == "solicitudescompras" || opcion == "ordencompra" || opcion == "requisicion") {
+        var SelectEstado = '<label>Estado:</label><br/>' +
+          '<select required class="form-control custom-select" name="Opcion_Estado" id="opc3">' +
+          '<option disabled selected value="">Selecciona una opción</option>' +
+          '<option value="Abrir">Abrir</option>' +
+          '<option value="Autorizar">Autorizar</option>' +
+          '<option value="Cerrar">Cerrar</option>' +
+          '<option value="Cancelar">Cancelar</option>' +
+          '</select>';
+
+      } else {
+        var SelectEstado = '<label>Estado:</label><br/>' +
+          '<select required class="form-control custom-select" name="Opcion_Estado" id="opc3">' +
+          '<option disabled selected value="">Selecciona una opción</option>' +
+          '<option value="Abrir">Abrir</option>' +
+          '<option value="Cerrar">Cerrar</option>' +
+          '<option value="Cancelar">Cancelar</option>' +
+          '</select>';
+      }
+
+
+      $('#resp').html(SelectEstado + SelectID);
+      $('#opc3').change(function() {
+        if ($('#opc3').val() == "Cancelar" && $('#opc2').val() == "remisiones") {
+          var SelectExt = '<div id="resp2"><br/><label>Motivo Cancelacion</label><br/>' +
+            '<select required class="form-control custom-select" id="busqueda2" name="busqueda2">' +
+            '<option disabled selected value="">Selecciona una opción</option>' +
+            '</select></div>';
+          $('#resp').append(SelectExt);
+
+          //Busqueda de causas de cancelacion.
+          $.ajax({
+            type: "post",
+            url: 'controlador.php',
+            success: function(data) {
+              var len = data.length;
+              for (var i = 0; i < len; i++) {
+                var id = data[i].ID;
+                var causa = data[i].Causa;
+                $("#busqueda2").append('<option id="' + id + '" value="' + causa + '">' + causa + ' </option><br>');
+              }
+            },
+            error: function(data) {
+              alert('error');
+
+            }
+          });
+
+
+        } else {
+          $('#resp2').remove();
+        }
+
+      });
+
+      //Funcion que trae el XFolio de cada movimiento
+
+      $.ajax({
+        type: "post",
+        url: 'controlador.php',
+        data: $('#opc2').serialize(),
+        success: function(data) {
+          $("#busqueda").append(data);
+
+        },
+        error: function(data) {
+          alert('error');
+          console.log(data);
+        }
+      });
+
+    });
+  </script>
+</body>
+
+</html>
