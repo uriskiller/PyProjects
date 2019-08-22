@@ -1,0 +1,12 @@
+C:\Users\Jow\Documents\C#\bin\Debug\netcoreapp2.2\C#.deps.json
+C:\Users\Jow\Documents\C#\bin\Debug\netcoreapp2.2\C#.runtimeconfig.json
+C:\Users\Jow\Documents\C#\bin\Debug\netcoreapp2.2\C#.runtimeconfig.dev.json
+C:\Users\Jow\Documents\C#\bin\Debug\netcoreapp2.2\C#.dll
+C:\Users\Jow\Documents\C#\bin\Debug\netcoreapp2.2\C#.pdb
+C:\Users\Jow\Documents\C#\obj\Debug\netcoreapp2.2\C#.csprojAssemblyReference.cache
+C:\Users\Jow\Documents\C#\obj\Debug\netcoreapp2.2\C#.csproj.CoreCompileInputs.cache
+C:\Users\Jow\Documents\C#\obj\Debug\netcoreapp2.2\C#.AssemblyInfoInputs.cache
+C:\Users\Jow\Documents\C#\obj\Debug\netcoreapp2.2\C#.AssemblyInfo.cs
+C:\Users\Jow\Documents\C#\obj\Debug\netcoreapp2.2\C#.dll
+C:\Users\Jow\Documents\C#\obj\Debug\netcoreapp2.2\C#.pdb
+C:\Users\Jow\Documents\C#\obj\Debug\netcoreapp2.2\C#.csproj.CopyComplete

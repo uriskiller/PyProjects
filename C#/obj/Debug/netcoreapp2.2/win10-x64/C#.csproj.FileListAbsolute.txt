@@ -1,0 +1,16 @@
+C:\Users\Jow\Documents\C#\bin\Debug\netcoreapp2.2\win10-x64\hostpolicy.dll
+C:\Users\Jow\Documents\C#\bin\Debug\netcoreapp2.2\win10-x64\hostfxr.dll
+C:\Users\Jow\Documents\C#\bin\Debug\netcoreapp2.2\win10-x64\C#.exe
+C:\Users\Jow\Documents\C#\bin\Debug\netcoreapp2.2\win10-x64\C#.deps.json
+C:\Users\Jow\Documents\C#\bin\Debug\netcoreapp2.2\win10-x64\C#.runtimeconfig.json
+C:\Users\Jow\Documents\C#\bin\Debug\netcoreapp2.2\win10-x64\C#.runtimeconfig.dev.json
+C:\Users\Jow\Documents\C#\bin\Debug\netcoreapp2.2\win10-x64\C#.dll
+C:\Users\Jow\Documents\C#\bin\Debug\netcoreapp2.2\win10-x64\C#.pdb
+C:\Users\Jow\Documents\C#\bin\Debug\netcoreapp2.2\win10-x64\MySql.Data.dll
+C:\Users\Jow\Documents\C#\obj\Debug\netcoreapp2.2\win10-x64\C#.csprojAssemblyReference.cache
+C:\Users\Jow\Documents\C#\obj\Debug\netcoreapp2.2\win10-x64\C#.csproj.CoreCompileInputs.cache
+C:\Users\Jow\Documents\C#\obj\Debug\netcoreapp2.2\win10-x64\C#.AssemblyInfoInputs.cache
+C:\Users\Jow\Documents\C#\obj\Debug\netcoreapp2.2\win10-x64\C#.AssemblyInfo.cs
+C:\Users\Jow\Documents\C#\obj\Debug\netcoreapp2.2\win10-x64\C#.csproj.CopyComplete
+C:\Users\Jow\Documents\C#\obj\Debug\netcoreapp2.2\win10-x64\C#.dll
+C:\Users\Jow\Documents\C#\obj\Debug\netcoreapp2.2\win10-x64\C#.pdb
